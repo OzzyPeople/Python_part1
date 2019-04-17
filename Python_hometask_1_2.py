@@ -44,3 +44,22 @@ def calculator (a, b, z):
         print (list_operators[z](a,b))
         return (str(calculator (a, b, z)))
 print (calculator (a, b, z))
+
+'''
+2
+
+Посчитать четные и нечетные цифры введенного натурального числа.
+Например, если введено число 34560, то у него 3 четные цифры (4, 6 и 0) и 2 нечетные (3 и 5).
+
+'''
+
+a =  input("Введите число: ")
+chet = []
+nechet = []
+for i in a:
+    if int(i)%2 ==0:
+        chet.append(i)
+    else:
+        nechet.append(i)
+print (*chet)
+print (*nechet)
