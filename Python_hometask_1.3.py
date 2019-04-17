@@ -38,3 +38,34 @@ for i in arr:
         new_arr.append(b)
 
 print (new_arr)
+
+"""
+Задание 3
+
+В массиве случайных целых чисел поменять местами минимальный и максимальный элементы.
+
+"""
+import numpy as np
+g = input("введите возможное максимально число в наборе случайнах чисел :")
+b = np.random.randint(1, high = g, size=100) #создаем массив
+max_ =  b.max()
+min_= b.min()
+
+print ("первоначальный массив", b)
+
+dr_max = [] # список для индексов всех максимумов
+dr_min = [] # список для индексов всех минимумов
+
+for i, j in enumerate(b): #добавляем индекс в список
+    if j == max_:
+        dr_max.append(i)
+    elif j== min_:
+        dr_min.append(i)
+
+for k in dr_max: #меняем все максимумы на минимумы
+    b[k] = min_
+
+for k in dr_min: #меняем все минимумы на максимумы
+    b[k] = max_
+
+print (b)
