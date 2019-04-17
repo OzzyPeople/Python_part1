@@ -194,3 +194,21 @@ for i in n:
     if i==n1:
         i_count+=1
 print (i_count)
+
+ '''
+ Задание 9
+
+ Среди натуральных чисел, которые были введены, найти наибольшее по сумме цифр.
+ Вывести на экран это число и сумму его цифр.
+
+ '''
+
+ n = [x for x in input("Введите последовательность натуральных через пробел: ").split()]
+
+c = {}
+for i in n:
+    one_sum = 0
+    for k in i:
+        one_sum +=int(k)
+    c.setdefault(i, one_sum)
+print (sorted(c.items(), reverse = True, key = lambda t: t[0])[0] ) #выводим первую пару из отросортированного по убыванию словаря (уже tuple)
