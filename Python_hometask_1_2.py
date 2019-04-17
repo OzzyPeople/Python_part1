@@ -90,3 +90,32 @@ sum_l = []
 for i in num[:n]:
     sum_l.append(i)
 print (sum(sum_l))
+
+'''
+5
+
+Вывести на экран коды и символы таблицы ASCII, начиная с символа под номером 32 и заканчивая 127-м включительно.
+Вывод выполнить в табличной форме: по десять пар "код-символ" в каждой строке.
+
+'''
+
+import pandas as pd
+from tabulate import tabulate
+
+l_n = []
+kl={}
+for i in range(32, 128):
+    par = i, chr(i)
+    l_n.append(par)
+b=1
+n=10
+j=0
+
+for i in l_n:
+    if len(kl) < len(l_n)/10:
+     # это индекс списка или самое значение ?
+        kl[b]=l_n[j:n]
+        b+=1 #номер пары
+        j+=10 #старт отсчета пары
+        n+=10 #конец отсчета пары
+print (tabulate(kl,["code-symbol"], tablefmt="plain")) #showindex="always"
