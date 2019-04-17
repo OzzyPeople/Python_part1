@@ -101,3 +101,32 @@ for i, j in enumerate(b):
         d[i] = j
 
 print (sorted(d.items())[0])
+
+'''
+Задание 6
+
+В одномерном массиве найти сумму элементов,
+находящихся между минимальным и максимальным элементами.
+Сами минимальный и максимальный элементы в сумму не включать.
+'''
+
+import random
+
+N = 12
+b = [random.randint(1, 100) for _ in range(N)]
+
+for i, j in enumerate(b):
+
+    if j == max(b):
+        mi_p, mi_v = i, j
+    if j == min(b):
+        ma_p, ma_v = i, j
+
+print ('позиция минимума {}, значение = {}'.format(mi_p, mi_v))
+print ('позиция максимума {}, значение = {}'.format(ma_p, ma_v))
+
+
+if  ma_p > mi_p :
+    print ("Сумма значений между минимумом и максимумом = ", sum(b[mi_p+1: ma_p]))
+else:
+    print ("Сумма значенений между максимумом и минимумом = ", sum(b[ma_p+1: mi_p]))
