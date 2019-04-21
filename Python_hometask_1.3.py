@@ -109,7 +109,7 @@ for i, j in enumerate(b):
 print (sorted(d.items())[0])
 
 
-# Вариант 2 по комментариям преподователя без функции sorted 
+# Вариант 2 по комментариям преподователя без функции sorted
 
 #Возьмем произвольный массив от - 11 до 12 и 100 значений
 b = np.random.randint(-11, high = 12, size=100)
@@ -138,9 +138,9 @@ b = [random.randint(1, 100) for _ in range(N)]
 for i, j in enumerate(b):
 
     if j == max(b):
-        mi_p, mi_v = i, j
-    if j == min(b):
         ma_p, ma_v = i, j
+    if j == min(b):
+        mi_p, mi_v = i, j
 
 print ('позиция минимума {}, значение = {}'.format(mi_p, mi_v))
 print ('позиция максимума {}, значение = {}'.format(ma_p, ma_v))
