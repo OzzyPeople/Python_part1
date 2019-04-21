@@ -108,6 +108,20 @@ for i, j in enumerate(b):
 
 print (sorted(d.items())[0])
 
+
+# Вариант 2 по комментариям преподователя без функции sorted 
+
+#Возьмем произвольный массив от - 11 до 12 и 100 значений
+b = np.random.randint(-11, high = 12, size=100)
+
+for i in range(len(b)):
+        minimum = i # задаем первое минимальное значение
+        for j in range(i + 1, len(b)):
+            if b[j] < b[minimum]: # если находим меньшее значение
+                minimum = j
+        b[minimum], b[i] = b[i], b[minimum] # размещаем минимальное значение впереди значения, которое больше
+print (b)
+
 '''
 Задание 6
 
