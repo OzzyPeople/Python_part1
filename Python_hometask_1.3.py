@@ -8,13 +8,19 @@
 
 num_m = [x for x in range(2,100)] #массив для проверки
 num_c = [x for x in range(2,10)] # список чисел, которые будет проверять на кратность
-count = 0
+count_2 = 0
+count_3 = 0
 
 for i in num_m:
     for k in num_c:
         if i%2 == 0:
-            count +=1
-print (count)
+            count_2 +=1
+        if  i%3==0:
+            count_3 +=1
+
+
+print ("Количество чисел, кратное 2 = {}".format (count_2))
+print ("Количество чисел, кратное 3 = {}".format (count_3))
 
 
 '''
