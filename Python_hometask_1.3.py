@@ -186,13 +186,10 @@ n3 = [int(x) for x in input("3-я стока. Введите последова�
 n4 = [int(x) for x in input("4-я стока. Введите последовательность 3-х чисел через пробел: ").split()]
 n5 = [int(x) for x in input("5-я стока. Введите последовательность 3-х чисел через пробел: ").split()]
 
-n1.append(sum(n1))
-n2.append(sum(n2))
-n3.append(sum(n3))
-n4.append(sum(n4))
-n5.append(sum(n5))
-
 n_total = [n1, n2, n3, n4, n5]
+
+for i in n_total:
+    i.append(sum(i))
 
 matrix = np.array(n_total)
 print (matrix)
