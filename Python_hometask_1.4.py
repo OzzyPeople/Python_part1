@@ -141,6 +141,9 @@ def eratosphen_2():
 
 ert_1 = timeit.timeit('eratosphen_1()', setup="from __main__ import eratosphen_1", number=10000)
 ert_2 = timeit.timeit('eratosphen_2()', setup="from __main__ import eratosphen_2", number=10000)
+%load_ext memory_profiler
+%memit eratosphen_1()
+%memit eratosphen_2()
 
 '''
 
