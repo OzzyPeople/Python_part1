@@ -1,3 +1,8 @@
+import numpy as np
+import cProfile
+import timeit
+import memory_profiler
+
  '''
  Задание 1
 
@@ -119,15 +124,32 @@ def eratosphen_2():
     a.remove(0)
     return (a)
 
+# Оценка сложности алгоритмов
+
+%load_ext memory_profiler
+%memit minimax_1(x)
+%memit minimax_2(x)
+
 ert_1 = timeit.timeit('eratosphen_1()', setup="from __main__ import eratosphen_1", number=10000)
 ert_2 = timeit.timeit('eratosphen_2()', setup="from __main__ import eratosphen_2", number=10000)
 
 '''
-Второй вариант работает гораздо быстрее, так как упрощена схема вывода результатов, не создается дополнительно массив для этого
-за счет использования множества set
+Вариант 2 требует меньше времени.
 
-Вариант1 0.34642014800010656, Вариант 2 - 0.22776638899995305
+(0.05230714500066824, 0.030556582001736388)
 
-Сложность алгоритма линейная.
+Варианты почему:
+- не переворавичиваем матрицу
+- больше использует алгоритмический подход, а не встроенные методы из библиотеки numpy
+
+Кроме этого, объем памяти, который необходим алгоритму в варианте 2, гораздо меньше, чем в варианте 1.
+
+Вариант 1. peak memory: 40.52 MiB, increment: 0.11 MiB
+Вариант 2. peak memory: 40.54 MiB, increment: 0.02 MiB
+
+increment = peak memory - starting memory и во втором алгоритме почти в 6 раз меньше. 
+
+Сложность алгоритма линейная и зависит от объема массива.
+
 
 '''
