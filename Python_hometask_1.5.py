@@ -59,6 +59,9 @@ print (ff)
 first = ff[0][::-1]
 second = ff[1][::-1]
 
+dl1=len(first)
+dl2=len(scond)
+
 #Делаем одинаковую длину списку у всех аргументов и добавляем 0
 if dl1 > dl2:
     dif1 = dl1 - dl2
