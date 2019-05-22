@@ -1,5 +1,6 @@
 from memory_profiler import profile
 import collections
+from pympler import asizeof
 
 num_first = 'A2'
 num_second = 'C4F'
@@ -88,13 +89,13 @@ def sum16 (s):
 
 
 if __name__ == "__main__":
-    print(f'Вариант 1 с функции hex{HexOperation(num_first, num_second) + HexOperation(num_first, num_second)}')
-    print (f'Вариант 2 без функции hex {sum16(s)}')
+    print(f'количество ссылок вариант #1 - {asizeof.asizeof(HexOperation(num_first, num_second) + HexOperation(num_first, num_second))}')
+    print (f'количество ссылок вариант #2 - {asizeof.asizeof(sum16(s))}')
 
 '''
 Резюме  - разница между первым и вторым вариантом составляет 2.6 MiB. По данным profile это происходит только за счет
-самого профайлера. Сам алгоритм оценки памяти тяжелее для варианта 2, чем для 1-го.
-А так разница в коде неочевидна, кроме его длины :)
+самого профайлера. Сам алгоритм оценки памяти тяжелее для варианта 2, чем для 1-го. А так разница в коде неочевидна, кроме его длины :)
+По количеству ссылок получается одинаково - 256. Это странно
 
 версию Python 3.7 и разрядность вашей ОС - 64.
 '''
