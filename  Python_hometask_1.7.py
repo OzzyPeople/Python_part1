@@ -9,23 +9,23 @@
 
 import random
 
-def bubble_sort(orig_list):
+def bubble_sort3(orig_list):
     n = 1
+    f = True #вводим переменную флаг
     while n < len(orig_list):
         for i in range(len(orig_list)-n):
             if orig_list[i] > orig_list[i+1]:
+                f = False #меняем флаг и выполняем условия
                 orig_list[i],orig_list[i+1] = orig_list[i+1],orig_list[i]
-
-            if (orig_list[i] < orig_list[i+1] or orig_list[i] == orig_list[i+1]): #если сортировка не нужна
+            if f: #если все ок, ничего не делаем
                 break
         n += 1
     return orig_list
 
 # массив
-dd = [random.randint(-100, 100) for _ in range(100)]
+dd1 = [random.randint(-100, 100) for _ in range(100)]
 
-print(f'оригинальный массив {dd}\nотсортированный массив {bubble_sort(dd)}')
-
+print(f'оригинальный массив {dd1}\nотсортированный массив {bubble_sort3(dd1)}')
 #Задание 2
 
 '''
@@ -106,6 +106,6 @@ def countingsort(aList, k):
             b += 1
             counter[i] -= 1
     d = len(aList) // 2
-    return aList[d]
+    return aList, aList[d]
 
 print (countingsort(rm, max(rm)))
